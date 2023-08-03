@@ -11,7 +11,11 @@ function Product({product}:any) {
         if(cartItems.findIndex((pro : any) => pro.id == product.id) == -1){
             setCartItems((prevState) : any => [...prevState, product])
         } else{
-
+            setCartItems((prevState: any) => {
+                return prevState.map((item : any) => {
+                    return item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+                })
+            })
         }
         toast(`${product.name} has been added to the cart!`)
     }
