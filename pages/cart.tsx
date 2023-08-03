@@ -2,6 +2,7 @@ import Navbar from '@/components/navbar';
 import React from 'react';
 import {useRecoilState} from "recoil"
 import { cartState } from '@/atoms/cartState';
+import CartList from '@/components/CartList';
 
 function Cart() {
     const [cartItems, setCartItems] = useRecoilState(cartState)
