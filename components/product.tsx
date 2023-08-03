@@ -8,7 +8,11 @@ function Product({product}:any) {
     const [cartItems, setCartItems] = useRecoilState(cartState)
 
     const addItemstoCart = () => {
-        setCartItems((prevState) : any => [...prevState, product])
+        if(cartItems.findIndex((pro : any) => pro.id == product.id) == -1){
+            setCartItems((prevState) : any => [...prevState, product])
+        } else{
+            
+        }
     }
 
     return (
