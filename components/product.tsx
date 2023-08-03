@@ -1,7 +1,7 @@
 import React from 'react';
 import {useRecoilState} from "recoil"
 import { cartState } from '@/atoms/cartState';
-
+import { toast } from "react-hot-toast"
 
 function Product({product}:any) {
 
@@ -11,8 +11,9 @@ function Product({product}:any) {
         if(cartItems.findIndex((pro : any) => pro.id == product.id) == -1){
             setCartItems((prevState) : any => [...prevState, product])
         } else{
-            
+
         }
+        toast(`${product.name} has been added to the cart!`)
     }
 
     return (
