@@ -1,4 +1,4 @@
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+// const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req : any, res: any) {
   if (req.method === 'POST') {
@@ -19,13 +19,13 @@ export default async function handler(req : any, res: any) {
 
     try {
       // Create Checkout Sessions from body params.
-      const session = await stripe.checkout.sessions.create({
-        line_items: transformedItems,
-        mode: 'payment',
-        success_url: `${req.headers.origin}/success`,
-        cancel_url: `${req.headers.origin}/`,
-      });
-      res.json({"sessionURL": session.url});
+      // const session = await stripe.checkout.sessions.create({
+      //   line_items: transformedItems,
+      //   mode: 'payment',
+      //   success_url: `${req.headers.origin}/success`,
+      //   cancel_url: `${req.headers.origin}/`,
+      // });
+      // res.json({"sessionURL": session.url});
     } catch (err: any) {
       console.log(err);
       res.status(err.statusCode || 500).json(err.message);
